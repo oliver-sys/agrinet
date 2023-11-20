@@ -22,7 +22,7 @@
         android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="77dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -34,16 +34,15 @@
     <View
         android:id="@+id/view2"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="72dp"
         android:background="@drawable/top"
+        android:elevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:elevation="0dp"
-        />
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/cartButton"
@@ -61,129 +60,82 @@
         android:layout_height="42dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/view2"
-        app:layout_constraintHorizontal_bias="0.862"
+        app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.394"
+        app:layout_constraintVertical_bias="0.35000002"
         app:srcCompat="@drawable/profile" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="42dp"
         android:layout_height="42dp"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.394"
+        app:layout_constraintVertical_bias="0.35000002"
         app:srcCompat="@drawable/home_active" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="385dp"
-        android:layout_height="258dp"
+        android:layout_width="380dp"
+        android:layout_height="132dp"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/shopButton"
-        app:layout_constraintVertical_bias="0.17">
+        app:layout_constraintVertical_bias="0.011">
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="96.25dp"
-            android:layout_height="96.25dp"
+            android:layout_width="68dp"
+            android:layout_height="65dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.05"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.228"
             app:srcCompat="@drawable/dlf_pt_fruits_and_vegetables_basket_1747365" />
 
         <ImageView
-            android:id="@+id/imageView11"
-            android:layout_width="96.25dp"
-            android:layout_height="96.25dp"
+            android:id="@+id/imageView3"
+            android:layout_width="68dp"
+            android:layout_height="65dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.003"
+            app:layout_constraintHorizontal_bias="0.338"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.79"
+            app:layout_constraintVertical_bias="0.228"
             app:srcCompat="@drawable/dlf_pt_fruits_and_vegetables_basket_1747365" />
 
         <ImageView
-            android:id="@+id/imageView12"
-            android:layout_width="96.25dp"
-            android:layout_height="96.25dp"
+            android:id="@+id/imageView5"
+            android:layout_width="68dp"
+            android:layout_height="65dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.335"
+            app:layout_constraintHorizontal_bias="0.639"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.79"
+            app:layout_constraintVertical_bias="0.228"
             app:srcCompat="@drawable/dlf_pt_fruits_and_vegetables_basket_1747365" />
 
         <ImageView
-            android:id="@+id/imageView13"
-            android:layout_width="96.25dp"
-            android:layout_height="96.25dp"
+            android:id="@+id/imageView6"
+            android:layout_width="68dp"
+            android:layout_height="65dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.667"
+            app:layout_constraintHorizontal_bias="0.949"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.79"
-            app:srcCompat="@drawable/dlf_pt_fruits_and_vegetables_basket_1747365" />
-
-        <ImageView
-            android:id="@+id/imageView21"
-            android:layout_width="96.25dp"
-            android:layout_height="96.25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.79"
-            app:srcCompat="@drawable/dlf_pt_fruits_and_vegetables_basket_1747365" />
-
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="96.25dp"
-            android:layout_height="96.25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.667"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/dlf_pt_fruits_and_vegetables_basket_1747365" />
-
-        <ImageView
-            android:id="@+id/imageView20"
-            android:layout_width="96.25dp"
-            android:layout_height="96.25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/dlf_pt_fruits_and_vegetables_basket_1747365" />
-
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="96.25dp"
-            android:layout_height="96.25dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.332"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.228"
             app:srcCompat="@drawable/dlf_pt_fruits_and_vegetables_basket_1747365" />
 
         <TextView
@@ -196,21 +148,20 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageView8"
-            app:layout_constraintVertical_bias="0.424" />
+            app:layout_constraintVertical_bias="0.811" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="96.25dp"
             android:layout_height="32dp"
+            android:layout_marginStart="96dp"
             android:gravity="center"
             android:text="Category_ex."
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.332"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageView8"
-            app:layout_constraintVertical_bias="0.424" />
+            app:layout_constraintVertical_bias="0.811" />
 
         <TextView
             android:id="@+id/textView11"
@@ -221,10 +172,10 @@
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.667"
+            app:layout_constraintHorizontal_bias="0.676"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageView8"
-            app:layout_constraintVertical_bias="0.424" />
+            app:layout_constraintVertical_bias="0.811" />
 
         <TextView
             android:id="@+id/textView12"
@@ -238,102 +189,61 @@
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/imageView8"
-            app:layout_constraintVertical_bias="0.424" />
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="96.25dp"
-            android:layout_height="32dp"
-            android:gravity="center"
-            android:text="Category_ex."
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.335"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView8"
-            app:layout_constraintVertical_bias="0.986" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="96.25dp"
-            android:layout_height="32dp"
-            android:gravity="center"
-            android:text="Category_ex."
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.667"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView8"
-            app:layout_constraintVertical_bias="0.986" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="96.25dp"
-            android:layout_height="32dp"
-            android:gravity="center"
-            android:text="Category_ex."
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.003"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView8"
-            app:layout_constraintVertical_bias="0.986" />
-
-        <TextView
-            android:id="@+id/textView13"
-            android:layout_width="96.25dp"
-            android:layout_height="32dp"
-            android:gravity="center"
-            android:text="Category_ex."
-            android:textAlignment="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView8"
-            app:layout_constraintVertical_bias="0.986" />
+            app:layout_constraintVertical_bias="0.811" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <ImageView
-        android:id="@+id/imageView17"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.137"
-        app:srcCompat="@drawable/baseline_menu_24" />
-
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="42dp"
-        android:layout_height="36dp"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.921"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207"
-        app:srcCompat="@drawable/baseline_search_24" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/shopButton"
         android:layout_width="385dp"
         android:layout_height="163dp"
         android:background="@drawable/corner"
+        android:elevation="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.06">
+        app:layout_constraintVertical_bias="0.079">
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="380dp"
+        android:layout_height="32dp"
+        android:background="@drawable/corner_white"
+        app:layout_constraintBottom_toTopOf="@+id/shopButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.555" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="209dp"
+        android:layout_height="24dp"
+        android:text="Looking for something?"
+        android:textAlignment="gravity"
+        android:textColor="@color/placeholder"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.351"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:layout_constraintVertical_bias="0.625" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="28dp"
+        android:layout_height="27dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.039"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/baseline_search_24" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

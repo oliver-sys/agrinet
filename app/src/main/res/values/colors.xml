@@ -7,4 +7,5 @@
     <color name="red">#DB2626</color>
     <color name="warmwhite">#fefaee</color>
     <color name="gray">#494a4b</color>
+    <color name="placeholder">#cccccc</color>
 </resources>
