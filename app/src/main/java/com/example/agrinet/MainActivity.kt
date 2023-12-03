@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val shopButton = findViewById<ConstraintLayout>(R.id.shopButton)
+        val shopButton2 = findViewById<ConstraintLayout>(R.id.shopButton2)
         val profileButton = findViewById<ImageView>(R.id.profileButton)
         val cartButton = findViewById<ImageView>(R.id.cartButton)
 
@@ -20,6 +21,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        shopButton2.setOnClickListener {
+            val intent = Intent(this, ShopActivity::class.java)
+            startActivity(intent)
+        }
         profileButton.setOnClickListener{
             val intent = Intent( this, ProfileActivity::class.java)
             startActivity(intent)
