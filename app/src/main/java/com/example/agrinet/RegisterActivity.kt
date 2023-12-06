@@ -10,6 +10,8 @@ import android.widget.TextView
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.FirebaseDatabase
+
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -23,6 +25,8 @@ class RegisterActivity : AppCompatActivity() {
 
         // Initialize Firebase Authentication
         auth = FirebaseAuth.getInstance()
+        val databaseUrl = "https://agrinet-29fd3-default-rtdb.asia-southeast1.firebasedatabase.app"
+        FirebaseDatabase.getInstance(databaseUrl).setPersistenceEnabled(true)
 
         // Initialize EditTexts
         editEmail = findViewById(R.id.editEmail)
@@ -73,7 +77,7 @@ class RegisterActivity : AppCompatActivity() {
         if (user != null) {
             // User is signed in
             // Redirect to the main activity, home screen, or perform any other action
-
+            addUserToDatabase(user.email)
             // Example: Start a new activity
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -87,4 +91,20 @@ class RegisterActivity : AppCompatActivity() {
             Toast.makeText(this, "User registration failed. Please try again.", Toast.LENGTH_SHORT).show()
         }
     }
+
+    private fun addUserToDatabase(email: String?) {
+        // Check if the email is not null
+        if (email != null) {
+            // Get a reference to the database
+            val database = FirebaseDatabase.getInstance().reference
+
+            // Get the UID of the currently authenticated user
+            val userId = FirebaseAuth.getInstance().currentUser?.uid ?: ""
+
+            // Set the user's email under the "users" node with the generated user ID
+            database.child("users").child(userId).child("email").setValue(email)
+        }
+    }
+
+
 }
