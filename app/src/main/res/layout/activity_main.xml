@@ -297,6 +297,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/aa2" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
@@ -310,21 +311,6 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.555" />
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="209dp"
-        android:layout_height="24dp"
-        android:text="Looking for something?"
-        android:textAlignment="gravity"
-        android:textColor="@color/placeholder"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/view3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.351"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view3"
-        app:layout_constraintVertical_bias="0.625" />
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="28dp"
@@ -336,6 +322,21 @@
         app:layout_constraintTop_toTopOf="@+id/view3"
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/baseline_search_24" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        style="@style/NoUnderlineEditText"
+        android:layout_width="292dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="40dp"
+        android:ems="10"
+        android:hint="Looking for something?"
+        android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

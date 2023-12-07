@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Your App Theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- ... other theme attributes ... -->
+    </style>
+
+    <!-- Custom style to remove underline from EditText -->
+    <style name="NoUnderlineEditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@null</item>
+    </style>
+
+</resources>
