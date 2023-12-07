@@ -14,6 +14,7 @@ class ShopActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.shop)
 
+        val cartButton = findViewById<ImageView>(R.id.cartButton)
         val homeButton = findViewById<ImageView>(R.id.homeButton)
         val sellerProduct1 = findViewById<ConstraintLayout>(R.id.sellerProduct1)
         val sellerProduct2 = findViewById<ConstraintLayout>(R.id.sellerProduct2)
@@ -78,9 +79,13 @@ class ShopActivity : AppCompatActivity() {
         }
 
         homeButton.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            finish()
+        }
+        cartButton.setOnClickListener {
+            val intent = Intent(this, Cart2Activity::class.java)
             startActivity(intent)
         }
+
         sellerProduct1.setOnClickListener {
             val intent = Intent(this, ProductActivity::class.java)
             startActivity(intent)

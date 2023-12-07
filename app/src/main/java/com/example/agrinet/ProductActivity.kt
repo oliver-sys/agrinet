@@ -1,20 +1,41 @@
 package com.example.agrinet
 
 import android.content.Intent
+
+import android.app.AlertDialog
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 
 class ProductActivity : AppCompatActivity() {
+
+    private lateinit var auth: FirebaseAuth
+    private lateinit var databaseRef: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.product)
 
+        auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        if (currentUser == null) {
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+            return
+        }
+
+        val userId = currentUser.uid
+        databaseRef = FirebaseDatabase.getInstance().reference.child("users").child(userId).child("cart")
+
+        val cartButton = findViewById<ImageView>(R.id.cartButton)
         val backButton = findViewById<ImageView>(R.id.backButton)
         val product1 = findViewById<TextView>(R.id.t1)
         val product2 = findViewById<TextView>(R.id.t2)
@@ -61,7 +82,8 @@ class ProductActivity : AppCompatActivity() {
                     for (productSnapshot in sellerSnapshot.child("products").children) {
                         // Fetch product name and price
                         val productName = productSnapshot.child("name").getValue(String::class.java)
-                        val productPrice = productSnapshot.child("pricePerKilo").getValue(Double::class.java)
+                        val productPrice =
+                            productSnapshot.child("pricePerKilo").getValue(Double::class.java)
 
                         // Determine which TextViews to update based on product position
                         // Assuming the products are sorted in the same order as your TextViews
@@ -107,7 +129,6 @@ class ProductActivity : AppCompatActivity() {
                                 product10.text = productName
                                 productPrice10.text = "$productPrice"
                             }
-
                         }
                     }
                 }
@@ -121,9 +142,152 @@ class ProductActivity : AppCompatActivity() {
         // Add the ValueEventListener to the database reference
         databaseRef.addValueEventListener(valueEventListener)
 
+        // Set up onClickListener for each product button
+        val productButtons = listOf(
+            productButton1, productButton2, productButton3, productButton4, productButton5,
+            productButton6, productButton7, productButton8, productButton9, productButton10
+        )
+
+        for ((index, button) in productButtons.withIndex()) {
+            button.setOnClickListener {
+                // Fetch the corresponding product information based on the index
+                val productName = when (index) {
+                    0 -> product1.text.toString()
+                    1 -> product2.text.toString()
+                    2 -> product3.text.toString()
+                    3 -> product4.text.toString()
+                    4 -> product5.text.toString()
+                    5 -> product6.text.toString()
+                    6 -> product7.text.toString()
+                    7 -> product8.text.toString()
+                    8 -> product9.text.toString()
+                    9 -> product10.text.toString()
+                    else -> "" // Handle other cases if needed
+                }
+
+                val productPrice = when (index) {
+                    0 -> productPrice1.text.toString()
+                    1 -> productPrice2.text.toString()
+                    2 -> productPrice3.text.toString()
+                    3 -> productPrice4.text.toString()
+                    4 -> productPrice5.text.toString()
+                    5 -> productPrice6.text.toString()
+                    6 -> productPrice7.text.toString()
+                    7 -> productPrice8.text.toString()
+                    8 -> productPrice9.text.toString()
+                    9 -> productPrice10.text.toString()
+                    else -> "" // Handle other cases if needed
+                }
+
+                // Build the alert dialog
+                val alertDialogBuilder = AlertDialog.Builder(this)
+                alertDialogBuilder.setTitle("Add to Cart")
+                alertDialogBuilder.setMessage("Add $productName to your cart for P$productPrice?")
+
+                // Set up the layout for quantity selection
+                val layout = LinearLayout(this)
+                layout.orientation = LinearLayout.VERTICAL
+                layout.setPadding(16, 16, 16, 16)
+
+                val quantityTextView = TextView(this)
+                quantityTextView.text = "Quantity: 1"
+                quantityTextView.textSize = 18f
+                layout.addView(quantityTextView)
+
+                // Set up plus and minus buttons
+                val minusButton = TextView(this)
+                minusButton.text = "-"
+                minusButton.textSize = 24f
+                minusButton.setTextColor(resources.getColor(android.R.color.black))
+                minusButton.background = resources.getDrawable(android.R.drawable.btn_default)
+                layout.addView(minusButton)
+
+                val plusButton = TextView(this)
+                plusButton.text = "+"
+                plusButton.textSize = 24f
+                plusButton.setTextColor(resources.getColor(android.R.color.black))
+                plusButton.background = resources.getDrawable(android.R.drawable.btn_default)
+                layout.addView(plusButton)
+
+                // Set up the click listeners for plus and minus buttons
+                var quantity = 1 // Initial quantity
+                minusButton.setOnClickListener {
+                    if (quantity > 1) {
+                        quantity--
+                        quantityTextView.text = "Quantity: $quantity"
+                    }
+                }
+
+                plusButton.setOnClickListener {
+                    quantity++
+                    quantityTextView.text = "Quantity: $quantity"
+                }
+
+                alertDialogBuilder.setView(layout)
+
+                // Set positive button (OK button) click listener
+                alertDialogBuilder.setPositiveButton("Add") { _, _ ->
+                    // Handle the "Add" button click
+                    // Here, you can add the product to the user's cart with the selected quantity
+                    // For now, let's show a Toast
+                    addToCart(userId, productName, productPrice.toDouble(), quantity)
+                }
+
+                // Set negative button (Cancel button) click listener
+                alertDialogBuilder.setNegativeButton("Cancel") { dialog, _ ->
+                    // Handle the "Cancel" button click
+                    dialog.dismiss()
+                }
+
+                // Create and show the alert dialog
+                val alertDialog = alertDialogBuilder.create()
+                alertDialog.show()
+            }
+        }
+
         backButton.setOnClickListener {
             // Navigate back to the ShopActivity
             finish()
         }
+
+        cartButton.setOnClickListener {
+            val intent = Intent(this, Cart2Activity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    private fun addToCart(userId: String, productName: String, productPrice: Double, quantity: Int) {
+        // Add the selected product to the user's cart in the Firebase Realtime Database
+        val cartItemRef = databaseRef.child(productName)
+
+        cartItemRef.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                // If the product is already in the cart, update the quantity
+                if (snapshot.exists()) {
+                    val existingQuantity = snapshot.child("quantity").getValue(Int::class.java) ?: 0
+                    cartItemRef.child("quantity").setValue(existingQuantity + quantity)
+                } else {
+                    // If the product is not in the cart, add it with the selected quantity
+                    cartItemRef.child("name").setValue(productName)
+                    cartItemRef.child("price").setValue(productPrice)
+                    cartItemRef.child("quantity").setValue(quantity)
+                }
+
+                Toast.makeText(
+                    this@ProductActivity,
+                    "$productName added to cart with quantity $quantity",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                // Handle error
+                Toast.makeText(
+                    this@ProductActivity,
+                    "Failed to add $productName to cart",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        })
     }
 }

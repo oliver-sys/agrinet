@@ -8,6 +8,7 @@ android {
     namespace = "com.example.agrinet"
     compileSdk = 34
 
+
     defaultConfig {
         applicationId = "com.example.agrinet"
         minSdk = 24
